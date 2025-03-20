@@ -1,9 +1,18 @@
 [build]
-  command = ""
-  publish = "."
+  command = "npm run build"  # Replace with your actual build command if needed
+  publish = "public"  # Replace with your actual build output directory
   functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"  # This can help with modern dependencies
 
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/:splat"
+  status = 200
+
+# Catch-all redirect for single page applications
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
   status = 200

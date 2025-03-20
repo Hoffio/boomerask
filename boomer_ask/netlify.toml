@@ -1,6 +1,6 @@
 [build]
-  command = "npm run build"  # Replace with your actual build command if needed
-  publish = "public"  # Replace with your actual build output directory
+  command = ""  # Replace with your actual build command if needed
+  publish = "."  # Replace with your actual build output directory
   functions = "netlify/functions"
 
 [functions]

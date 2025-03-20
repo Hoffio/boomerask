@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             try {
                 // Call the serverless API function
-                const response = await fetch('/api/ask', {
+                const response = await fetch('/.netlify/functions/ask', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

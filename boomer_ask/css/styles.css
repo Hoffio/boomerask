@@ -1,0 +1,543 @@
+/* 
+* Boomer Ask - Senior-friendly CSS
+* Implementing accessibility features with large text and high contrast
+*/
+
+/* Base styles and CSS reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Color scheme with high contrast */
+    --primary-color: #0056b3;
+    --primary-dark: #003c80;
+    --secondary-color: #e65100;
+    --secondary-dark: #ac3d00;
+    --text-color: #333333;
+    --text-color-light: #555555;
+    --background-color: #ffffff;
+    --background-alt: #f5f5f5;
+    --border-color: #cccccc;
+    --success-color: #2e7d32;
+    --error-color: #c62828;
+    
+    /* Font sizes - larger than typical websites */
+    --font-size-base: 18px;
+    --font-size-large: 20px;
+    --font-size-xlarge: 24px;
+    --font-size-xxlarge: 32px;
+    --font-size-huge: 40px;
+    
+    /* Spacing */
+    --spacing-small: 8px;
+    --spacing-medium: 16px;
+    --spacing-large: 24px;
+    --spacing-xlarge: 32px;
+    --spacing-xxlarge: 48px;
+    
+    /* Border radius */
+    --border-radius: 8px;
+    
+    /* Transitions */
+    --transition-speed: 0.3s;
+}
+
+html {
+    font-size: var(--font-size-base);
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: var(--spacing-medium);
+    line-height: 1.3;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+h1 {
+    font-size: var(--font-size-huge);
+}
+
+h2 {
+    font-size: var(--font-size-xxlarge);
+}
+
+h3 {
+    font-size: var(--font-size-xlarge);
+}
+
+p {
+    margin-bottom: var(--spacing-medium);
+    font-size: var(--font-size-large);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: underline;
+    transition: color var(--transition-speed);
+}
+
+a:hover, a:focus {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+a:focus {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Layout */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-large);
+}
+
+section {
+    margin: var(--spacing-xxlarge) 0;
+    padding: var(--spacing-xlarge) 0;
+}
+
+/* Header */
+header {
+    background-color: var(--background-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: var(--spacing-medium) 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo h1 {
+    margin-bottom: 0;
+    color: var(--primary-color);
+}
+
+.tagline {
+    font-size: var(--font-size-large);
+    margin-bottom: 0;
+    color: var(--text-color-light);
+}
+
+/* Navigation */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-large);
+    flex-wrap: wrap;
+}
+
+nav a {
+    display: block;
+    padding: var(--spacing-small) var(--spacing-medium);
+    font-size: var(--font-size-large);
+    text-decoration: none;
+    color: var(--text-color);
+    border-radius: var(--border-radius);
+    transition: background-color var(--transition-speed);
+}
+
+nav a:hover, nav a:focus {
+    background-color: var(--background-alt);
+    text-decoration: none;
+}
+
+nav a.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Text size controls */
+.text-size-controls {
+    display: flex;
+    gap: var(--spacing-small);
+    margin: var(--spacing-medium) 0;
+}
+
+.text-size-controls button {
+    background-color: var(--background-alt);
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-small) var(--spacing-medium);
+    font-size: var(--font-size-large);
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+}
+
+.text-size-controls button:hover, .text-size-controls button:focus {
+    background-color: var(--border-color);
+}
+
+/* Hero section */
+.hero {
+    background-color: var(--background-alt);
+    text-align: center;
+    padding: var(--spacing-large) 0;
+}
+
+.hero h2 {
+    margin-bottom: var(--spacing-medium);
+}
+
+/* Ask section */
+.ask-section {
+    text-align: center;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.search-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#question-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-medium);
+}
+
+#question-form label {
+    font-size: var(--font-size-large);
+    text-align: left;
+    font-weight: bold;
+}
+
+#question-input {
+    width: 100%;
+    padding: var(--spacing-large);
+    font-size: var(--font-size-large);
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+#question-input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.3);
+}
+
+.button-container {
+    display: flex;
+    gap: var(--spacing-medium);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: var(--spacing-medium);
+}
+
+/* Buttons */
+.primary-button, .secondary-button, .learn-more-button, .view-more-button, .contact-button {
+    display: inline-block;
+    padding: var(--spacing-medium) var(--spacing-large);
+    font-size: var(--font-size-large);
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    min-width: 200px;
+}
+
+.primary-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+}
+
+.primary-button:hover, .primary-button:focus {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.secondary-button {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+}
+
+.secondary-button:hover, .secondary-button:focus {
+    background-color: var(--secondary-dark);
+    transform: translateY(-2px);
+}
+
+.button-icon {
+    margin-right: var(--spacing-small);
+}
+
+.learn-more-button, .view-more-button {
+    background-color: var(--background-alt);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    margin-top: var(--spacing-large);
+}
+
+.learn-more-button:hover, .learn-more-button:focus,
+.view-more-button:hover, .view-more-button:focus {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.contact-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    margin-top: var(--spacing-medium);
+}
+
+.contact-button:hover, .contact-button:focus {
+    background-color: var(--primary-dark);
+}
+
+/* Popular topics */
+.topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-large);
+    margin-top: var(--spacing-large);
+}
+
+.topic-card {
+    background-color: var(--background-alt);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-large);
+    text-decoration: none;
+    color: var(--text-color);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.topic-card:hover, .topic-card:focus {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.topic-icon {
+    font-size: 48px;
+    margin-bottom: var(--spacing-medium);
+}
+
+.topic-card h3 {
+    margin-bottom: var(--spacing-small);
+}
+
+.topic-card p {
+    margin-bottom: 0;
+}
+
+/* How it works section */
+.how-it-works-preview {
+    background-color: var(--background-alt);
+    text-align: center;
+}
+
+.steps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-xlarge);
+    margin: var(--spacing-xlarge) 0;
+}
+
+.step {
+    flex: 1;
+    min-width: 250px;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.step-number {
+    background-color: var(--primary-color);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--font-size-xlarge);
+    font-weight: bold;
+    margin-bottom: var(--spacing-medium);
+}
+
+/* Testimonials */
+.testimonials-preview {
+    text-align: center;
+}
+
+.testimonial {
+    max-width: 800px;
+    margin: var(--spacing-xlarge) auto;
+    padding: var(--spacing-large);
+    background-color: var(--background-alt);
+    border-radius: var(--border-radius);
+    position: relative;
+}
+
+.testimonial-content {
+    font-size: var(--font-size-large);
+    font-style: italic;
+}
+
+.testimonial-author {
+    margin-top: var(--spacing-medium);
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    background-color: var(--background-alt);
+    padding: var(--spacing-xlarge) 0 var(--spacing-large);
+    margin-top: auto;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--spacing-xlarge);
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-section h3 {
+    margin-bottom: var(--spacing-medium);
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section li {
+    margin-bottom: var(--spacing-small);
+}
+
+.footer-bottom {
+    margin-top: var(--spacing-xlarge);
+    padding-top: var(--spacing-large);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--spacing-medium);
+}
+
+.footer-links {
+    display: flex;
+    gap: var(--spacing-large);
+    flex-wrap: wrap;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    :root {
+        --font-size-base: 16px;
+        --font-size-large: 18px;
+        --font-size-xlarge: 22px;
+        --font-size-xxlarge: 28px;
+        --font-size-huge: 36px;
+    }
+    
+    header .container {
+        flex-direction: column;
+        gap: var(--spacing-medium);
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: var(--spacing-small);
+        width: 100%;
+    }
+    
+    nav a {
+        text-align: center;
+    }
+    
+    .button-container {
+        flex-direction: column;
+    }
+    
+    .steps {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-links {
+        justify-content: center;
+    }
+}
+
+/* Accessibility focus styles */
+button:focus, a:focus, input:focus, select:focus, textarea:focus {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    :root {
+        --primary-color: #0000ff;
+        --primary-dark: #0000cc;
+        --secondary-color: #cc0000;
+        --secondary-dark: #990000;
+        --text-color: #000000;
+        --background-color: #ffffff;
+        --background-alt: #f0f0f0;
+        --border-color: #000000;
+    }
+    
+    a, button, input, select, textarea {
+        outline: 2px solid transparent;
+    }
+    
+    a:focus, button:focus, input:focus, select:focus, textarea:focus {
+        outline: 3px solid #000000;
+    }
+}

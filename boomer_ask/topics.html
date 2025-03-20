@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topics - Boomer Ask</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <meta name="description" content="Explore topics relevant to seniors including healthcare, technology help, retirement, and family.">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Boomer Ask</h1>
+                <p class="tagline">Your Friendly AI Assistant</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="how-it-works.html">How This Works</a></li>
+                    <li><a href="topics.html" class="active">Popular Topics</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="help.html">Help</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h2>Popular Topics</h2>
+                <div class="text-size-controls">
+                    <button id="decrease-text" aria-label="Decrease text size">A-</button>
+                    <button id="increase-text" aria-label="Increase text size">A+</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="topics-content">
+            <div class="container">
+                <p class="intro-text">Browse through these popular topics to find information that matters to you. Each topic includes common questions and reliable resources.</p>
+                
+                <div class="topics-detailed-grid">
+                    <div class="topic-detailed-card" id="healthcare">
+                        <div class="topic-icon">🏥</div>
+                        <h3>Healthcare</h3>
+                        <div class="topic-description">
+                            <p>Find information about managing your health, understanding medications, and navigating healthcare systems.</p>
+                            
+                            <div class="common-questions">
+                                <h4>Common Questions:</h4>
+                                <ul>
+                                    <li><a href="#" class="question-link">How can I remember to take my medications on time?</a></li>
+                                    <li><a href="#" class="question-link">What are the warning signs of a stroke?</a></li>
+                                    <li><a href="#" class="question-link">How do I find a doctor who specializes in senior care?</a></li>
+                                    <li><a href="#" class="question-link">What exercises are safe for people with arthritis?</a></li>
+                                    <li><a href="#" class="question-link">How can I understand my Medicare coverage?</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="trusted-sources">
+                                <h4>Trusted Sources:</h4>
+                                <ul>
+                                    <li>National Institute on Aging (NIA)</li>
+                                    <li>Centers for Disease Control and Prevention (CDC)</li>
+                                    <li>Medicare.gov</li>
+                                    <li>Mayo Clinic</li>
+                                    <li>American Heart Association</li>
+                                </ul>
+                                <p class="source-note">When answering healthcare questions, Boomer Ask relies on information from these and other reputable medical sources.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-detailed-card" id="technology">
+                        <div class="topic-icon">📱</div>
+                        <h3>Technology Help</h3>
+                        <div class="topic-description">
+                            <p>Get help with smartphones, computers, internet, and staying connected with family and friends online.</p>
+                            
+                            <div class="common-questions">
+                                <h4>Common Questions:</h4>
+                                <ul>
+                                    <li><a href="#" class="question-link">How do I video chat with my grandchildren?</a></li>
+                                    <li><a href="#" class="question-link">How can I make text larger on my smartphone?</a></li>
+                                    <li><a href="#" class="question-link">What's the easiest way to share photos with family?</a></li>
+                                    <li><a href="#" class="question-link">How do I spot and avoid online scams?</a></li>
+                                    <li><a href="#" class="question-link">How can I set up automatic backups for my computer?</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="trusted-sources">
+                                <h4>Trusted Sources:</h4>
+                                <ul>
+                                    <li>AARP Technology Resources</li>
+                                    <li>Senior Planet</li>
+                                    <li>GCF Global (Goodwill Community Foundation)</li>
+                                    <li>Consumer Reports</li>
+                                    <li>Federal Trade Commission (FTC)</li>
+                                </ul>
+                                <p class="source-note">For technology questions, Boomer Ask provides step-by-step instructions verified by technology education experts.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-detailed-card" id="retirement">
+                        <div class="topic-icon">💰</div>
+                        <h3>Retirement</h3>
+                        <div class="topic-description">
+                            <p>Learn about financial planning, retirement benefits, housing options, and making the most of your retirement years.</p>
+                            
+                            <div class="common-questions">
+                                <h4>Common Questions:</h4>
+                                <ul>
+                                    <li><a href="#" class="question-link">How do Social Security benefits work?</a></li>
+                                    <li><a href="#" class="question-link">What are Required Minimum Distributions (RMDs) from retirement accounts?</a></li>
+                                    <li><a href="#" class="question-link">What housing options are available for seniors?</a></li>
+                                    <li><a href="#" class="question-link">How can I protect myself from financial scams targeting seniors?</a></li>
+                                    <li><a href="#" class="question-link">What volunteer opportunities are good for retirees?</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="trusted-sources">
+                                <h4>Trusted Sources:</h4>
+                                <ul>
+                                    <li>Social Security Administration</li>
+                                    <li>Internal Revenue Service (IRS)</li>
+                                    <li>National Council on Aging</li>
+                                    <li>AARP</li>
+                                    <li>Consumer Financial Protection Bureau</li>
+                                </ul>
+                                <p class="source-note">For financial and retirement information, Boomer Ask cites official government sources and reputable financial education resources.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-detailed-card" id="family">
+                        <div class="topic-icon">👪</div>
+                        <h3>Family</h3>
+                        <div class="topic-description">
+                            <p>Find ways to stay connected with family, navigate changing relationships, and enjoy quality time with loved ones.</p>
+                            
+                            <div class="common-questions">
+                                <h4>Common Questions:</h4>
+                                <ul>
+                                    <li><a href="#" class="question-link">What are fun activities to do with grandchildren?</a></li>
+                                    <li><a href="#" class="question-link">How can I stay connected with family who live far away?</a></li>
+                                    <li><a href="#" class="question-link">What's the best way to share family stories and history?</a></li>
+                                    <li><a href="#" class="question-link">How do I talk to adult children about sensitive topics?</a></li>
+                                    <li><a href="#" class="question-link">What are good gift ideas for different family members?</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="trusted-sources">
+                                <h4>Trusted Sources:</h4>
+                                <ul>
+                                    <li>AARP Family Resources</li>
+                                    <li>Generations United</li>
+                                    <li>Family Studies Research</li>
+                                    <li>American Psychological Association</li>
+                                    <li>Legacy Project</li>
+                                </ul>
+                                <p class="source-note">For family-related questions, Boomer Ask provides advice based on relationship research and expert recommendations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="topic-disclaimer">
+                    <h3>Our Commitment to Reliable Information</h3>
+                    <p>At Boomer Ask, we're committed to providing accurate, trustworthy information. Here's how we ensure reliability:</p>
+                    <ul>
+                        <li><strong>Verified Sources:</strong> We rely on reputable organizations, government agencies, and expert research.</li>
+                        <li><strong>Clear Citations:</strong> We always show you where information comes from so you can verify it yourself.</li>
+                        <li><strong>Honesty About Limitations:</strong> If we're uncertain about something, we'll clearly tell you.</li>
+                        <li><strong>Regular Updates:</strong> We update our information to ensure it remains accurate and current.</li>
+                    </ul>
+                    <p>For critical decisions about health, finances, or legal matters, we always recommend consulting with qualified professionals.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Boomer Ask</h3>
+                    <p>Boomer Ask is designed to make AI technology accessible and comfortable for seniors.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="how-it-works.html">How This Works</a></li>
+                        <li><a href="topics.html">Popular Topics</a></li>
+                        <li><a href="testimonials.html">Testimonials</a></li>
+                        <li><a href="help.html">Help</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>Have questions or feedback? We'd love to hear from you.</p>
+                    <a href="contact.html" class="contact-button">Contact Us</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Boomer Ask. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Use</a>
+                    <a href="accessibility.html">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,5 +1,5 @@
 // netlify/functions/ask.js
-const { OpenAI } = require("openai");
+const openai = require("openai");
 
 exports.handler = async function(event, context) {
   // Set CORS headers
@@ -79,9 +79,11 @@ exports.handler = async function(event, context) {
     }
 
     // Configure OpenAI API with new client
-    const openai = new OpenAI({
-      apiKey: process.env.OPENAI_API_KEY,
-    });
+   const openaiClient = new openai.OpenAIApi(
+  new openai.Configuration({
+    apiKey: process.env.OPENAI_API_KEY
+  })
+);
 
     // Create a system message that instructs the AI to be senior-friendly
     const systemMessage = `You are a helpful assistant for seniors using the BoomerAsk website.
@@ -114,23 +116,21 @@ exports.handler = async function(event, context) {
     
     try {
       // Make the API request to OpenAI using the new client format
-      const response = await openai.chat.completions.create({
-        model: "gpt-3.5-turbo",
-        messages: [
-          { role: "system", content: systemMessage },
-          { role: "user", content: question }
-        ],
-        temperature: 0.7,
-        max_tokens: 500,
-        presence_penalty: 0.1, // Slight penalty to reduce repetition
-        frequency_penalty: 0.1, // Slight penalty to encourage varied language
-      }, {
+      const response = await openaiClient.createChatCompletion({
+  model: "gpt-3.5-turbo",
+  messages: [
+    { role: "system", content: systemMessage },
+    { role: "user", content: question }
+  ],
+  temperature: 0.7,
+  max_tokens: 500,
+  presence_penalty: 0.1,
+  frequency_penalty: 0.1,
         signal: controller.signal
       });
 
       // Extract the AI's response
-      const answer = response.choices[0].message.content;
-
+     const answer = response.data.choices[0].message.content;
       // Return the answer
       return {
         statusCode: 200,

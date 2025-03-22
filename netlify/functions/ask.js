@@ -143,8 +143,15 @@ exports.handler = async function(event, context) {
     } finally {
       clearTimeout(timeoutId);
     }
-  } catch (error) {
+catch (error) {
     console.error('Error processing request:', error);
+    console.error('Error details:', JSON.stringify({
+      name: error.name,
+      message: error.message,
+      stack: error.stack,
+      status: error.status,
+      apiKey: process.env.OPENAI_API_KEY ? 'API key exists' : 'API key missing'
+    }));
     
     // Handle timeout errors specifically
     if (error.name === 'AbortError') {
@@ -152,7 +159,8 @@ exports.handler = async function(event, context) {
         statusCode: 504,
         headers,
         body: JSON.stringify({ 
-          error: 'The request took too long to process. Please try again with a simpler question.'
+          error: 'The request took too long to process. Please try again with a simpler question.',
+          debug: error.message
         })
       };
     }
@@ -163,27 +171,21 @@ exports.handler = async function(event, context) {
         statusCode: 429,
         headers,
         body: JSON.stringify({ 
-          error: 'Our service is currently experiencing high demand. Please try again in a few moments.'
+          error: 'Our service is currently experiencing high demand. Please try again in a few moments.',
+          debug: error.message
         })
       };
     }
     
-    // Determine if it's a client error or server error
-    const statusCode = error.status && error.status < 500 ? error.status : 500;
-    
-    // Create a user-friendly error message without exposing internals
-    const errorMessage = statusCode < 500 
-      ? 'There was a problem with your request' 
-      : 'An error occurred while processing your question';
-    
+    // Return detailed error information
     return {
-      statusCode,
+      statusCode: 500,
       headers,
       body: JSON.stringify({ 
-        error: errorMessage,
-        // Only include detailed error in development
-        ...(process.env.NODE_ENV === 'development' && { details: error.message })
+        error: 'An error occurred while processing your question',
+        debug: error.message,
+        type: error.name,
+        apiKeyExists: process.env.OPENAI_API_KEY ? true : false
       })
     };
-  }
-};
+}

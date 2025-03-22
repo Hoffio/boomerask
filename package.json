@@ -4,7 +4,7 @@
   "description": "A senior-friendly AI interface",
   "main": "index.js",
   "dependencies": {
-    "axios": "^3.2.1"
+    "axios": "^1.3.4"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

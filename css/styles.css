@@ -204,7 +204,7 @@ nav a.active {
 }
 
 .hero h2 {
-    margin-bottom: var(--spacing-medium);
+    margin-bottom: var(--spacing-small);
 }
 
 /* Ask section */
